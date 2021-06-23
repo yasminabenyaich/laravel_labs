@@ -25,6 +25,9 @@ Route::get('/service',function(){
 Route::get('/blog',function(){
     return view('blog');
 })->name('blog');
+Route::get('/blogPost',function(){
+    return view('blogPost');
+})->name('blogPost');
 
 Route::get('/contact',function(){
     return view('contact');
