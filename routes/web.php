@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\TitreController;
+use App\Models\Card;
+use App\Models\Titre;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,15 +16,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//// Views
 Route::get('/', function () {
-    return view('home');
+    $cards= Card::all()->shuffle();
+    return view('home',compact('cards'));
 
 })->name('home');
 
 Route::get('/service',function(){
-    return view('service');
+    $cards= Card::all()->shuffle();
+    $titres= Titre::all();
+    return view('service',compact('cards'));
 })->name('service');
+
+Route::get('/titre',function(){
+    
+    return view('titres');
+})->name('titre');
+
 
 Route::get('/blog',function(){
     return view('blog');
@@ -38,6 +51,11 @@ Route::get('/element',function(){
 })->name('element');
 
 
+
+
+
+Route::resource('/cards',CardController::class);
+Route::resource('/titres',TitreController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

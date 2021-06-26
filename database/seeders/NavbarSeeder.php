@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class NavbarSeeder extends Seeder
 {
@@ -13,6 +14,26 @@ class NavbarSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('navbars')->insert(
+        [
+            [
+                "link"=>'/',
+                "page"=>'Home',
+            ],
+            [
+                "link"=> '/services',
+                "page"=>'Services',
+            ],
+            [
+                "link"=>'blogs',
+                "page"=>"Blog",
+            ],
+            [
+                "link"=>'/contacts',
+                "page"=>'Contact',
+            ],
+            
+            ]
+        );
     }
 }

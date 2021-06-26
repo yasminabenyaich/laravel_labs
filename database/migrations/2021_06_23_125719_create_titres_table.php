@@ -28,5 +28,6 @@ class CreateTitresTable extends Migration
     public function down()
     {
         Schema::dropIfExists('titres');
+        
     }
 }

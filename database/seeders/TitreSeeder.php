@@ -15,7 +15,16 @@ class TitreSeeder extends Seeder
     public function run()
     {
         DB::table("titres")->insert([
-            'titre'=> 'Get in (the Lab)and discover the world'
+            'title'=> 'Get in (the Lab)and discover the world',
+        ]);
+        DB::table("titres")->insert([
+            'title'=> 'Get in (the Lab)and discover the world',
+        ]);
+        DB::table("titres")->insert([
+            'title'=> 'Get in (the Lab)and discover the world',
+        ]);
+        DB::table("titres")->insert([
+            'title'=> 'Get in (the Lab)and discover the world',
         ]);
     }
 }

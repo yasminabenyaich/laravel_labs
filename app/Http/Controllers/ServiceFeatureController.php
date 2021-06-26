@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Logo;
+use App\Models\ServiceFeature;
 use Illuminate\Http\Request;
 
-class LogoController extends Controller
+class ServiceFeatureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class LogoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Logo  $logo
+     * @param  \App\Models\ServiceFeature  $serviceFeature
      * @return \Illuminate\Http\Response
      */
-    public function show(Logo $logo)
+    public function show(ServiceFeature $serviceFeature)
     {
         //
     }
@@ -52,10 +52,10 @@ class LogoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Logo  $logo
+     * @param  \App\Models\ServiceFeature  $serviceFeature
      * @return \Illuminate\Http\Response
      */
-    public function edit(Logo $logo)
+    public function edit(ServiceFeature $serviceFeature)
     {
         //
     }
@@ -64,10 +64,10 @@ class LogoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Logo  $logo
+     * @param  \App\Models\ServiceFeature  $serviceFeature
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Logo $logo)
+    public function update(Request $request, ServiceFeature $serviceFeature)
     {
         //
     }
@@ -75,10 +75,10 @@ class LogoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Logo  $logo
+     * @param  \App\Models\ServiceFeature  $serviceFeature
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Logo $logo)
+    public function destroy(ServiceFeature $serviceFeature)
     {
         //
     }

@@ -3,11 +3,11 @@
 @include('partials.navBack')
  <section  style="margin-left: 250px;">
  
-    <div class="row" data-aos="fade-up">
-        <div class="row justify-content-center">
-            <h1 class="text-center">welcome to dashboard</h1>
-    </div>/
+  <div class="container-fluid" data-aos="fade-up">
+    <div class="row justify-content-center">
+        <h1 class="text-center">welcome to dashboard</h1>
     </div>
+  </div>
     {{-- <div id="chart" style="height: 300px;"></div>
     <!-- Charting library -->
     <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AboutContent;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,5 +17,18 @@ class DatabaseSeeder extends Seeder
         $this->call(TitreSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(IconeSeeder::class);
+        $this->call(HeaderSeeder::class);
+        $this->call(NavbarSeeder::class);
+        $this->call(HeroSeeder::class);
+        $this->call(CardSeeder::class);
+        $this->call(TestimonialSeeder::class);
+        $this->call(Caroussel_itemSeeder::class);
+        $this->call(VideoSeeder::class);
+        $this->call(ContactSeeder::class);
+        $this->call(AboutContentSeeder::class);
+        $this->call(Service_featureSeeder::class);
+        $this->call(CardImgSeeder::class);
+
     }
 }

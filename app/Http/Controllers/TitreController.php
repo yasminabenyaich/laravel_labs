@@ -14,7 +14,8 @@ class TitreController extends Controller
      */
     public function index()
     {
-        //
+        $titres = Titre::paginate(2);
+        return view("backoffice.titre.all",compact("titres"));
     }
 
     /**
@@ -24,7 +25,7 @@ class TitreController extends Controller
      */
     public function create()
     {
-        //
+         //return view("backoffice.titre.create");
     }
 
     /**
@@ -35,7 +36,19 @@ class TitreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $request->validate([
+                "title"=>"required",
+            ]);
+    
+            $titre = new Titre;
+            $titre->title = $request->title;
+        
+            $titre -> created_at = now();
+            $titre->save();
+            return redirect()->route("titres.index")->with("message", "Le titre $titre->title a  bien été créée");
+    
+        }
     }
 
     /**
@@ -46,7 +59,7 @@ class TitreController extends Controller
      */
     public function show(Titre $titre)
     {
-        //
+         // return view("backoffice.titre.show", compact("titre"));
     }
 
     /**
@@ -57,7 +70,7 @@ class TitreController extends Controller
      */
     public function edit(Titre $titre)
     {
-        //
+        return view("backoffice.titre.edit", compact("titre"));
     }
 
     /**
@@ -69,7 +82,20 @@ class TitreController extends Controller
      */
     public function update(Request $request, Titre $titre)
     {
-        //
+        {
+            $request->validate([
+                "title"=>"required",
+            ]);
+    
+    
+            $titre->title = $request->title;
+   
+    
+            $titre -> updated_at = now();
+            $titre->save();
+            return redirect()->route("titres.index")->with("message", "Le titre $titre->title est bien modifié");
+    
+        }
     }
 
     /**
@@ -80,6 +106,7 @@ class TitreController extends Controller
      */
     public function destroy(Titre $titre)
     {
-        //
+        $titre->delete();
+        return redirect()->back();
     }
 }

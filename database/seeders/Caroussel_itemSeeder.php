@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class LogoSeeder extends Seeder
+class Caroussel_itemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,9 @@ class LogoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('caroussel_items')->insert([
+            "img"=> "img/01.jpg",
+         
+        ]);
     }
 }
