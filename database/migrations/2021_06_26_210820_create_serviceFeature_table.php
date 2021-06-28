@@ -13,7 +13,7 @@ class CreateServiceFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_features', function (Blueprint $table) {
+        Schema::create('serviceFeatures', function (Blueprint $table) {
         $table->id();
         $table->string('img')->nullable();
         $table->foreignId('icone_id')->constrained('icones');
@@ -31,6 +31,6 @@ class CreateServiceFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_feature');
+        Schema::dropIfExists('serviceFeatures');
     }
 }

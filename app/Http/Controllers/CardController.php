@@ -29,7 +29,7 @@ class CardController extends Controller
     public function create()
     {
         $icones = Icone::all();
-        return view('backoffice.card.createCard',compact('icones'));
+        return view('backoffice.card.createCard',compact('icones','cards'));
     }
 
     /**

@@ -14,7 +14,7 @@
                 <h2>{{ $card->h2 }}</h2>
                 <p>{{ $card->p }}</p>
                 <a href={{ route('cards.edit',$card) }} class="site-btn btn-2">Edit</a>
-                <button class="site-btn btn-2">Create</button>
+            
             </div>
         </div>
         

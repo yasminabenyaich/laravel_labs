@@ -14,7 +14,8 @@ class NavbarController extends Controller
      */
     public function index()
     {
-        //
+        $navbar= Navbar::all();
+        return view("backofffice.navbar.all",compact('navbars'));
     }
 
     /**
@@ -57,7 +58,7 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
-        //
+        
     }
 
     /**
@@ -69,7 +70,7 @@ class NavbarController extends Controller
      */
     public function update(Request $request, Navbar $navbar)
     {
-        //
+        
     }
 
     /**

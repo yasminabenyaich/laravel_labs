@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutContent;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 
 class AboutContentController extends Controller
@@ -14,6 +15,7 @@ class AboutContentController extends Controller
      */
     public function index()
     {
+        
         $aboutContent= AboutContent::all();
         return view('backoffice.aboutContent.all',compact('aboutContents'));
     }
@@ -25,7 +27,8 @@ class AboutContentController extends Controller
      */
     public function create()
     {
-        //
+        
+        // return view('backoffice.aboutContent.create',compact('aboutContents',));
     }
 
     /**
@@ -36,7 +39,19 @@ class AboutContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        
+        //     "p1"=> "required",
+        //     "p2"=>"required",
+        // ]);
+
+        // $aboutContent = new AboutContent();
+        // $aboutContent->p1 = $request->p1;
+        // $aboutContent->p2 = $request->p2;
+        // $aboutContent->save();
+        // return redirect(('aboutContent.index'));
+
+
     }
 
     /**
@@ -58,7 +73,8 @@ class AboutContentController extends Controller
      */
     public function edit(AboutContent $aboutContent)
     {
-        //
+    
+        return view("backoffice.aboutContent.edit",compact('aboutContent'));
     }
 
     /**
@@ -70,7 +86,18 @@ class AboutContentController extends Controller
      */
     public function update(Request $request, AboutContent $aboutContent)
     {
-        //
+        $request->validate([
+        
+            "p1"=> "required",
+            "p2"=>"required",
+        ]);
+        $aboutContent->p1 = $request->p;
+        $aboutContent->p2 = $request->p;
+        $aboutContent-> created_at=now();
+        $aboutContent->save();
+
+        return redirect('/aboutContents');
+        
     }
 
     /**
@@ -81,6 +108,7 @@ class AboutContentController extends Controller
      */
     public function destroy(AboutContent $aboutContent)
     {
-        //
+        $aboutContent->delete();
+        return redirect()->back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CardImg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CardImgController extends Controller
 {
@@ -14,7 +15,9 @@ class CardImgController extends Controller
      */
     public function index()
     {
-        //
+        $cardImg= CardImg::all();
+        
+        return view('backoffice.cardImg.all',compact('cardImgs'));
     }
 
     /**
@@ -24,7 +27,8 @@ class CardImgController extends Controller
      */
     public function create()
     {
-        //
+        $cardImgs = CardImg::all();
+        return view('backoffice.cardImg.create');
     }
 
     /**
@@ -35,7 +39,21 @@ class CardImgController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "img"=> "required",
+            "h2"=> "required",
+            "p"=> "requrired",
+        ]);
+
+        $cardImg = new CardImg();
+        $cardImg->h2 = $request->h2;
+        $cardImg->p = $request->p;
+        $cardImg->img = $request->file('img')->hashName();
+        $request->file('img')->storePublicly("img","public");
+
+        $cardImg-> created_at = now();
+        $cardImg->save();
+        return redirect()->route("cardImg.index")->with("message","Les cartes ont bien été créer");
     }
 
     /**
@@ -57,7 +75,7 @@ class CardImgController extends Controller
      */
     public function edit(CardImg $cardImg)
     {
-        //
+        return view('backoffice.cardImg.edit',compact('cardImg'));
     }
 
     /**
@@ -69,7 +87,20 @@ class CardImgController extends Controller
      */
     public function update(Request $request, CardImg $cardImg)
     {
-        //
+        $request->validate([
+            "img"=> "required",
+            "h2"=> "required",
+            "p"=> "requrired",
+        ]);
+        $cardImg->h2= $request->h2;
+        $cardImg->p = $request->p;
+        Storage::disk("publilc")->delete("img/" .$cardImg->img);
+        $cardImg->img = $request->file("img")->hashName();
+        $request->file("img")->storePublicly("img","public");
+        
+        $cardImg-> updated_at = now();
+        $cardImg->save();
+        return redirect()->route('cardImgs.index')->with("message","Les cartes ont bien été modifiés");
     }
 
     /**
@@ -80,6 +111,7 @@ class CardImgController extends Controller
      */
     public function destroy(CardImg $cardImg)
     {
-        //
+        $cardImg->delete();
+        return redirect()->back();
     }
 }

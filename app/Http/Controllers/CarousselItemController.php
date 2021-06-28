@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Caroussel_item;
+
+use App\Models\CarousselItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CarousselItemController extends Controller
 {
@@ -14,7 +16,8 @@ class CarousselItemController extends Controller
      */
     public function index()
     {
-        //
+        $carrouselItems = CarousselItem::all();
+        return view('backoffice.carousselItem.all',compact('carousselItems'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CarousselItemController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -35,7 +38,16 @@ class CarousselItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "img"=> "required",
+        ]);
+        $carousselItem = new CarousselItem();
+
+        $carousselItem->img = $request->file('img')->hashName();
+        $request->file("img")->storePublicly("img","public");
+
+        $carousselItem->created_at = now();
+        $carousselItem->save();
     }
 
     /**
@@ -44,9 +56,9 @@ class CarousselItemController extends Controller
      * @param  \App\Models\Caroussel_item  $caroussel_item
      * @return \Illuminate\Http\Response
      */
-    public function show(Caroussel_item $caroussel_item)
+    public function show(CarousselItem $carousselItem)
     {
-        //
+        return view("backoffice.carousselItem.show");
     }
 
     /**
@@ -55,9 +67,9 @@ class CarousselItemController extends Controller
      * @param  \App\Models\Caroussel_item  $caroussel_item
      * @return \Illuminate\Http\Response
      */
-    public function edit(Caroussel_item $caroussel_item)
+    public function edit(CarousselItem $carousselItem)
     {
-        //
+        return view("backoffice.carousselItem.edit");
     }
 
     /**
@@ -67,9 +79,19 @@ class CarousselItemController extends Controller
      * @param  \App\Models\Caroussel_item  $caroussel_item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Caroussel_item $caroussel_item)
+    public function update(Request $request, CarousselItem $carousselItem)
     {
-        //
+        $request->validate([
+            "img"=> "required",
+        ]);
+        
+        Storage::disk("public")->delete("img/" . $carousselItem->img);
+        $carousselItem->img= $request->file("img")->hasName();
+        $request->file("img")->storePublicly("img","puclic");
+
+        $carousselItem->updated_at=now();
+        $carousselItem->save();
+        return redirect()->route("carousselItems.index")->with("message","Le caroussel a bien été créer");
     }
 
     /**
@@ -78,8 +100,9 @@ class CarousselItemController extends Controller
      * @param  \App\Models\Caroussel_item  $caroussel_item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Caroussel_item $caroussel_item)
+    public function destroy(CarousselItem $carousselItem)
     {
-        //
+        $carousselItem->delete();
+        return redirect()->back();
     }
 }

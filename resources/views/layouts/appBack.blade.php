@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href={{ asset('css/owl.carousel.css')}}>
     <link rel="stylesheet" href={{ asset('css/index.css')}}>
 	<link rel="stylesheet" href={{ asset('css/style.css')}}>
+	<link rel="stylesheet" href={{ asset("css/app.css") }}>
 
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

@@ -46,7 +46,7 @@ class HeroController extends Controller
         $hero->logo= $request->logo;
         $hero->h3= $request->h3;
         $hero->save();
-        return redirect(('heroes.index'));
+            return redirect(('heroes.index'));
     }
 
     /**

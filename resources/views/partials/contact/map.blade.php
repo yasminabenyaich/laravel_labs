@@ -1,2 +1,1 @@
-	<!-- Google map -->
-	<div class="map" id="map-area"></div>
+<iframe width="100%" height="700px" src="https://maps.google.com/maps?q=%7B%7B{{ $contact->position }}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>

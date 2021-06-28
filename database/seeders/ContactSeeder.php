@@ -15,6 +15,7 @@ class ContactSeeder extends Seeder
     public function run()
     {
         DB::table('contacts')->insert([
+
             [
                 "h2"=>'Contact us',
                 "p"=>'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. 
@@ -22,23 +23,9 @@ class ContactSeeder extends Seeder
                 "adress"=>'C Libertad 305200 Arévalo',
                 "phone"=>'0034 37483 2445 322',
                 "mail"=>'hello@company.com',
+                "position"=>'Avenue Julien Hanssens '
             ],
-            [
-                "h2"=>'Contact us',
-                "p"=>'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. 
-                Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.',
-                "adress"=>'C Libertad 305200 Arévalo',
-                "phone"=>'0034 37483 2445 322',
-                "mail"=>'hello@company.com',
-            ],
-            [
-                "h2"=>'Contact us',
-                "p"=>'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. 
-                Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.',
-                "adress"=>'C Libertad 305200 Arévalo',
-                "phone"=>'0034 37483 2445 322',
-                "mail"=>'hello@company.com',
-            ],
+            
             ]);
     }
 }

@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contact = Contact::first();
+        return view("backoffice.contact.all",compact('contact'));
     }
 
     /**
@@ -35,7 +36,25 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "h2"=>"required",
+            "p"=>"required",
+            "adress"=>"required",
+            "phone"=>"required",
+            "mail"=>"required",
+            "position"=>"required",
+        ]);
+
+        $contact = new Contact();
+        $contact->h2 = $request->h2;
+        $contact->p = $request->p;
+        $contact->adress = $request->adress;
+        $contact->phone = $request->phone;
+        $contact->mail = $request->mail;
+        $contact->position = $request->position;
+       
+        $contact-> save();
+            return redirect(('contacts.index'));
     }
 
     /**
@@ -57,7 +76,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view("backoffice.contact.edit",compact('contact'));
     }
 
     /**
@@ -69,7 +88,24 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $request->validate([
+            "h2"=>"required",
+            "p"=>"required",
+            "adress"=>"required",
+            "phone"=>"required",
+            "mail"=>"required",
+            "position"=>"required",
+        ]);
+        $contact = new Contact();
+        $contact->h2= $request->h2;
+        $contact->p= $request->p;
+        $contact->adress= $request->adress;
+        $contact->phone= $request->phone;
+        $contact->mail= $request->mail;
+        $contact->position = $request->position;
+        $contact->created_at= now();
+        $contact->save();
+            return redirect(('/contacts'));
     }
 
     /**
@@ -80,6 +116,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return redirect()->back();
     }
 }
