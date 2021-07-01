@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     {
         DB::table("users")->insert([
             "role_id"=>1,
+            "pdp"=>"1.jpg",
             "name"=>"Williams",
             "firstname"=>"Christinne",
             "description"=>"PROJECT MANAGER",
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
 
         DB::table("users")->insert([
             "role_id"=>2,
+            "pdp"=>"1.jpg",
             "name"=>"Benyaich",
             "firstname"=>"Yasmina",
             "description"=>"DEV JUNIOR",
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
 
         DB::table("users")->insert([
             "role_id"=>3,
+            "pdp"=>"2.jpg",
             "name"=>"Williams",
             "firstname"=>"Axel",
             "description"=>"Digital Designer",
@@ -44,6 +47,7 @@ class UserSeeder extends Seeder
 
         DB::table("users")->insert([
             "role_id"=>4,
+            "pdp"=>"3.jpg",
             "name"=>"Mahad",
             "firstname" => "Liban",
             "description"=>"Membre",

@@ -44,10 +44,22 @@ class CardSeeder extends Seeder
                 ],
                 [
                     
-                    "icone_id" => 20,
+                    "icone_id" => 16,
                     "h2" => "HELLO YOU",
                     "p" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 ],
+                // [
+                    
+                //     "icone_id" => 18,
+                //     "h2" => "HELLO YOU",
+                //     "p" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
+                // ],
+                // [
+                    
+                //     "icone_id" => 20,
+                //     "h2" => "HELLO YOU",
+                //     "p" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
+                // ],
             ]
         ); 
     }

@@ -10,8 +10,9 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\IconeController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ServiceFeatureController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitreController;
 use App\Http\Controllers\VideoController;
@@ -19,7 +20,9 @@ use App\Models\AboutContent;
 use App\Models\Card;
 use App\Models\Contact;
 use App\Models\Navbar;
+use App\Models\NewsLetter;
 use App\Models\Post;
+use App\Models\Service;
 use App\Models\Testimonial;
 use App\Models\Titre;
 use App\Models\Video;
@@ -42,8 +45,9 @@ Route::get('/', function () {
     $aboutContent = AboutContent::first();
     $titres = Titre::all();
     $video= Video::first();
+    $contact = Contact::first();
     $testimonials = Testimonial::all();
-  return view('home',compact('cards','navbars','aboutContent','titres','video','testimonials'));
+  return view('home',compact('cards','navbars','aboutContent','titres','video','testimonials','contact'));
 
 })->name('home');
 
@@ -52,7 +56,10 @@ Route::get('/service',function(){
     $cards= Card::all()->shuffle();
     $titres= Titre::all();
     $navbars = Navbar::all();
-    return view('service',compact('cards','titres','navbars'));
+    $services = Service::all()->shuffle();
+    $contact = Contact::first();
+    $newsLetters = NewsLetter::all();
+    return view('service',compact('cards','titres','navbars','services','contact','newsLetters'));
 })->name('service');
 
 
@@ -75,7 +82,7 @@ Route::get('/blogPost/{post_id}',function($post_id){
 })->name('blogPost');
 
 Route::get('/contact',function(){
-    $contact = Contact::all();
+    $contact = Contact::first();
     $navbars = Navbar::all();
     return view('contact',compact('contact','navbars'));
 })->name('contact');
@@ -103,10 +110,12 @@ Route::resource('/cardImgs',CardImgController::class);
 Route::post("cardImgs/{id}/download",[CardImgController::class],"download");
 
 Route::resource('/newsletters', NewsLetterController::class);
+Route::resource('/newsletterMails', NewsletterMailController::class);
 
 Route::resource('/contacts',ContactController::class);
 
-Route::resource('/serviceFeatures',ServiceFeatureController::class);
+Route::resource('/services', ServiceController::class);
+
 
 Route::resource('/videos',VideoController::class);
 

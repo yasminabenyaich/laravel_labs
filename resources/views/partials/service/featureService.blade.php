@@ -2,82 +2,56 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>Get in <span>the Lab</span> and  discover the world</h2>
+            <h2>{!! str_replace(["(", ")"], ["<span>", "</span>"], $titres[0]->title) !!}</h2>
         </div>
         <div class="row">
             <!-- feature item -->
+            
             <div class="col-md-4 col-sm-4 features">
+                @foreach ($services as $key=>$service)
+                @if ($key<= 2 )
                 <div class="icon-box light left">
                     <div class="service-text">
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        <h2>{{ $service->h3 }}</h2>
+                        <p>{{ $service->p }}</p>
                     </div>
                     <div class="icon">
-                        <i class="flaticon-002-caliper"></i>
+                        <i class={{ $service->icone->icone }}></i>
                     </div>
                 </div>
-                <!-- feature item -->
-                <div class="icon-box light left">
-                    <div class="service-text">
-                        <h2>Projects online</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                    <div class="icon">
-                        <i class="flaticon-019-coffee-cup"></i>
-                    </div>
-                </div>
-                <!-- feature item -->
-                <div class="icon-box light left">
-                    <div class="service-text">
-                        <h2>SMART MARKETING</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                    <div class="icon">
-                        <i class="flaticon-020-creativity"></i>
-                    </div>
-                </div>
+                @endif
+                @endforeach
             </div>
-            <!-- Devices -->
+                    
+                
+
+
             <div class="col-md-4 col-sm-4 devices">
                 <div class="text-center">
                     <img src="img/device.png" alt="">
                 </div>
             </div>
-            <!-- feature item -->
+            
             <div class="col-md-4 col-sm-4 features">
-                <div class="icon-box light">
-                    <div class="icon">
-                        <i class="flaticon-037-idea"></i>
-                    </div>
+                @foreach ($services as $key=>$service)
+                @if ($key > 2 && $key <=5)
+                <div class="icon-box light left">
                     <div class="service-text">
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        <h2>{{ $service->h3 }}</h2>
+                        <p>{{ $service->p }}</p>
+                    </div>
+                    <div class="icon">
+                        <i class={{ $service->icone->icone }}></i>
                     </div>
                 </div>
-                <!-- feature item -->
-                <div class="icon-box light">
-                    <div class="icon">
-                        <i class="flaticon-025-imagination"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Projects online</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                </div>
-                <!-- feature item -->
-                <div class="icon-box light">
-                    <div class="icon">
-                        <i class="flaticon-008-team"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>SMART MARKETING</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                </div>
+                @endif
+                @endforeach
             </div>
+          
         </div>
         <div class="text-center mt100">
-            <a href="" class="site-btn">Browse</a>
+            <a href="" class="site-btn">{{ $service->btn }}</a>
         </div>
     </div>
 </div>
+

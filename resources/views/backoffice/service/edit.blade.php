@@ -1,4 +1,4 @@
-@extends('layouts.appBack')
+{{-- @extends('layouts.appBack')
 @section('content')
     
 <form method="POST" action="{{route("cards.update",$card)  }}" enctype="multipart/form-data">
@@ -25,4 +25,4 @@
     </div>      
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-@endsection
+@endsection --}}

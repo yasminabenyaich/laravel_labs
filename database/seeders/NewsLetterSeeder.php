@@ -14,23 +14,23 @@ class NewsLetterSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('newsletters')->insert(
+        DB::table('newsLetters')->insert(
             [
             [
                 "h2"=>'Newsletter',
                 "input"=>'Your e-mail here',
                 "btn"=> 'Newsletter',
             ],
-            [
-                "h2"=>'Newsletter',
-                "input"=>'Your e-mail here',
-                "btn"=> 'Newsletter',
-            ],
-            [
-                "h2"=>'Newsletter',
-                "input"=>'Your e-mail here',
-                "btn"=> 'Newsletter',
-            ],
+            // [
+            //     "h2"=>'Newsletter',
+            //     "input"=>'Your e-mail here',
+            //     "btn"=> 'Newsletter',
+            // ],
+            // [
+            //     "h2"=>'Newsletter',
+            //     "input"=>'Your e-mail here',
+            //     "btn"=> 'Newsletter',
+            // ],
            
         ]);
     }

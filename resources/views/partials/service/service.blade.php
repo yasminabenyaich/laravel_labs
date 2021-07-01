@@ -1,25 +1,42 @@
-<div class="services-section spad">
+<div class="services-card-section spad">
     <div class="container">
-        <div class="section-title dark">
-            <h2>Get in <span>the Lab</span> and see the services</h2>
-        </div>
         <div class="row">
-        
-            @foreach ($cards->slice(0,9)->shuffle() as $card)
-            
+            <!-- Single Card -->
             <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class={{ $card->icone->icone }}></i>
+                <div class="sv-card">
+                    <div class="card-img">
+                        <img src="img/card-1.jpg" alt="">
                     </div>
-                    <div class="service-text">
-                        <h2>{{ $card->h2 }}</h2>
-                        <p>{{ $card->p }}</p>
+                    <div class="card-text">
+                        <h2>Get in the lab</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
                 </div>
             </div>
-      
-          @endforeach
-           
+            <!-- Single Card -->
+            <div class="col-md-4 col-sm-6">
+                <div class="sv-card">
+                    <div class="card-img">
+                        <img src="img/card-2.jpg" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h2>Projects online</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Card -->
+            <div class="col-md-4 col-sm-12">
+                <div class="sv-card">
+                    <div class="card-img">
+                        <img src="img/card-3.jpg" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h2>SMART MARKETING</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ImgTestimonial;
+use App\Models\NewsletterMail;
 use Illuminate\Http\Request;
 
-class ImgTestimonialController extends Controller
+class NewsletterMailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ImgTestimonialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ImgTestimonial  $imgTestimonial
+     * @param  \App\Models\NewsletterMail  $newsletterMail
      * @return \Illuminate\Http\Response
      */
-    public function show(ImgTestimonial $imgTestimonial)
+    public function show(NewsletterMail $newsletterMail)
     {
         //
     }
@@ -52,10 +52,10 @@ class ImgTestimonialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ImgTestimonial  $imgTestimonial
+     * @param  \App\Models\NewsletterMail  $newsletterMail
      * @return \Illuminate\Http\Response
      */
-    public function edit(ImgTestimonial $imgTestimonial)
+    public function edit(NewsletterMail $newsletterMail)
     {
         //
     }
@@ -64,10 +64,10 @@ class ImgTestimonialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ImgTestimonial  $imgTestimonial
+     * @param  \App\Models\NewsletterMail  $newsletterMail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ImgTestimonial $imgTestimonial)
+    public function update(Request $request, NewsletterMail $newsletterMail)
     {
         //
     }
@@ -75,10 +75,10 @@ class ImgTestimonialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ImgTestimonial  $imgTestimonial
+     * @param  \App\Models\NewsletterMail  $newsletterMail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ImgTestimonial $imgTestimonial)
+    public function destroy(NewsletterMail $newsletterMail)
     {
         //
     }

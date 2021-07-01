@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class icone extends Model
 {
     use HasFactory;
+
+    
 }

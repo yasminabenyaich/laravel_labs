@@ -26,7 +26,7 @@
         <a  href={{ route('heroes.index') }}><i class="fas fa-home"></i>Hero</a>
       </li>
       <li>
-        <a href={{ route('serviceFeatures.index') }}><i class="fas fa-cart-plus"></i>Services</a>
+        <a href={{ route('services.index') }}><i class="fas fa-cart-plus"></i>Services</a>
       </li>
       <li>
         <a  href={{ route('contacts.index') }}><i class="fas fa-phone-square"></i>Contact</a>

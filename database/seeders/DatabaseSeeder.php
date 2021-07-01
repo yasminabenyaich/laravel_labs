@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\AboutContent;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -27,9 +26,10 @@ class DatabaseSeeder extends Seeder
         $this->call(VideoSeeder::class);
         $this->call(ContactSeeder::class);
         $this->call(AboutContentSeeder::class);
-        $this->call(ServiceFeatureSeeder::class);
+        $this->call(ServiceSeeder::class);
         $this->call(CardImgSeeder::class);
         $this->call(PostSeeder::class);
+        $this->call(NewsLetterSeeder::class);
 
 
     }

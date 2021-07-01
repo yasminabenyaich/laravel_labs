@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ServiceFeature extends Model
+class Service extends Model
 {
     use HasFactory;
+    
+    protected $table = "services";
 
-
-    protected $table = "service_features"   ;
-      
-    public function icones()
+    public function icone()
     {
         return $this->belongsTo(Icone::class,'icone_id');
     }

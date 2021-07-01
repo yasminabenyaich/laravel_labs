@@ -1,4 +1,4 @@
-@extends('layouts.appBack')
+{{-- @extends('layouts.appBack')
 
 @section('content')
 <div class="container">
@@ -21,4 +21,4 @@
         @endforeach
      
 
-@endsection
+@endsection --}}
