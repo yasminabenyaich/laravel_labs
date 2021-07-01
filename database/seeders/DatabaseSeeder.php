@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AboutContentSeeder::class);
         $this->call(ServiceFeatureSeeder::class);
         $this->call(CardImgSeeder::class);
+        $this->call(PostSeeder::class);
+
 
     }
 }

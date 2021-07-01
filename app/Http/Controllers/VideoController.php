@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
@@ -14,7 +15,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $videos = Video::all();
+        return view('backoffice.video.all',compact('videos'));
     }
 
     /**
@@ -24,7 +26,7 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+        return view('bakcoffice.vide.create');
     }
 
     /**
@@ -35,7 +37,18 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'link'=>"required",
+            'url'=> "required",
+        ]);
+
+        $video = new Video();
+        $video->link= $request->link;
+        $video->url= $request->file('url')->hasName();
+        $request->file('url')->storePublicly("img","public");
+        
+        $video->save();
+        return redirect(('video.index'));
     }
 
     /**
@@ -57,7 +70,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        return view('backoffice.video.edit');
     }
 
     /**
@@ -69,7 +82,17 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
+        $request->validate([
+            'link'=>"required",
+            'url'=> "required",
+        ]);
+        $video = new Video();
+        Storage::disk("public")->delete("img/" .$video->url);
+        $video->url = $request->file("img/","public");
+        $video->link = $request->link;
+        $video->created_at= now();
+        $video->save();
+        return redirect(('video.index'));
     }
 
     /**
@@ -80,6 +103,7 @@ class VideoController extends Controller
      */
     public function destroy(Video $video)
     {
-        //
+        $video->delete();
+        return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\icone;
 use App\Models\ServiceFeature;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ServiceFeatureController extends Controller
      */
     public function index()
     {
-        //
+        $serviceFeatures = ServiceFeature::all();
+        $icones= Icone::all();
+        return view('backoffice.serviceFeature.all',compact('serviceFeatures','icones'));
     }
 
     /**
@@ -24,7 +27,8 @@ class ServiceFeatureController extends Controller
      */
     public function create()
     {
-        //
+        $icones = Icone::all();
+        return view('backoffice.serviceFeature.create',compact('icones','serviceFeatures'));
     }
 
     /**
@@ -35,7 +39,18 @@ class ServiceFeatureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+        "icone_id"=> "required",
+        "h3"=> "required",
+        "p"=> "required",
+       ]);
+
+       $serviceFeature = new ServiceFeature();
+       $serviceFeature->icone_id= $request->icone_id;
+       $serviceFeature->h3= $request->h3;
+       $serviceFeature->p= $request->p;
+       $serviceFeature->save();
+       return redirect(('serviceFeatures.index'));
     }
 
     /**
@@ -57,7 +72,8 @@ class ServiceFeatureController extends Controller
      */
     public function edit(ServiceFeature $serviceFeature)
     {
-        //
+        $icones = Icone::all();
+        return view('backoffice.serviceFeature.edit',compact('serviceFeature','icones'));
     }
 
     /**
@@ -69,7 +85,18 @@ class ServiceFeatureController extends Controller
      */
     public function update(Request $request, ServiceFeature $serviceFeature)
     {
-        //
+        $request->validate([
+            "icone_id"=> "required",
+            "h3"=> "required",
+            "p"=> "required",
+           ]);
+        $serviceFeature->icone_id= $request->icone_id;
+        $serviceFeature->h3= $request->h3;
+        $serviceFeature->p= $request->p;
+        $serviceFeature->created_at = now();
+        $serviceFeature->save();
+
+        return redirect('/serviceFeatures');
     }
 
     /**
@@ -80,6 +107,7 @@ class ServiceFeatureController extends Controller
      */
     public function destroy(ServiceFeature $serviceFeature)
     {
-        //
+        $serviceFeature->delete();
+        return redirect()->back();
     }
 }

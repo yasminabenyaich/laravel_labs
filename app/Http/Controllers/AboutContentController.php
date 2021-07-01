@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutContent;
-use App\Models\Titre;
 use Illuminate\Http\Request;
 
 class AboutContentController extends Controller
@@ -16,7 +15,7 @@ class AboutContentController extends Controller
     public function index()
     {
         
-        $aboutContent= AboutContent::all();
+        $aboutContents = AboutContent::all();
         return view('backoffice.aboutContent.all',compact('aboutContents'));
     }
 
@@ -90,13 +89,15 @@ class AboutContentController extends Controller
         
             "p1"=> "required",
             "p2"=>"required",
+            "btn"=>"required",
         ]);
-        $aboutContent->p1 = $request->p;
-        $aboutContent->p2 = $request->p;
+        $aboutContent->p1 = $request->p1;
+        $aboutContent->p2 = $request->p2;
+        $aboutContent->btn = $request->btn;
         $aboutContent-> created_at=now();
         $aboutContent->save();
 
-        return redirect('/aboutContents');
+        return redirect(('/aboutContents'))->with("message", "La section about bien été modifer");
         
     }
 

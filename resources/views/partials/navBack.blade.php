@@ -1,89 +1,57 @@
-
-
+<div>
   <div class="logo">
     <a  href={{ route('home') }}><img src={{ asset('img/logo.png') }} alt=""></a>
-      <!-- Logo -->
   </div>
-  <!-- Navigation -->
-
- <div class="sidebar_menu">
-      
     <ul>
       <li>
         <a href={{ route('dashboard') }}><i class="fab fa-accusoft"></i> 
           Dashboard</a>
       </li>
       <li>
-        <a href="">Home</a>
+        <a href={{ route('navbars.index') }}><i class="fas fa-align-justify"></i>Navbar</a>
       </li>
       <li>
-        <a href={{ route('cards.index') }}>Carte Service</a>
+        <a href={{ route('carousselItems.index') }}><i class="fas fa-images"></i>Caroussel</a>
       </li>
       <li>
-        <a href={{ route('titres.index') }} >Titre</a>
+        <a href={{ route('cards.index') }}><i class="fas fa-cart-plus"></i>Carte Service</a>
       </li>
       <li>
-        <a href="">Caroussel</a>
+        <a href={{ route('titres.index') }} ><i class="fab fa-adversal"></i> Titre</a>
       </li>
       <li>
-        <a  href="">About</a>
+        <a  href={{ route('aboutContents.index') }}><i class="fas fa-home"></i>About</a>
       </li>
       <li>
-        <a  href="">Hero</a>
+        <a  href={{ route('heroes.index') }}><i class="fas fa-home"></i>Hero</a>
       </li>
       <li>
-        <a href="">Services</a>
+        <a href={{ route('serviceFeatures.index') }}><i class="fas fa-cart-plus"></i>Services</a>
       </li>
       <li>
-        <a  href={{ route('contacts.index') }}>Contact</a>
+        <a  href={{ route('contacts.index') }}><i class="fas fa-phone-square"></i>Contact</a>
       </li>
       <li>
-        <a href="" >Testimonial</a>
+        <a href={{ route('testimonials.index') }} ><i class="fab fa-accusoft"></i>Testimonial</a>
       </li>  
-     
+  
+      @auth
+      <li>
+          <a class="nav-link scrollto " href="/"> Bonjour {{Auth::user()->name }}</a>
+      </li>
+      @endauth
+      @auth 
+        <li>
+            <form class="inline" action={{ route('logout') }} method="POST">
+            @csrf
+            <a onclick="event.preventDefault(); this.closest('form').submit();" type="submit" class="nav-link scrollto" href="{{ route('logout')}}">Logout</a>
+            </form>
+        </li>
+    @endauth
     </ul>
-    
-  </div>
+</div>
 
 
 
 
 
-{{-- 
-      <nav>
-      <ul class="menu-list">
-        <li>
-          <a class="menu-list" href={{ route('dashboard') }} >Dashboard <i class="fa fa-gift"></i></a>
-        </li>
-        <li>
-          <a class="menu-list" href="">Home</a>
-        </li>
-       
-        <li>
-          <a class="menu-list" href={{ route('cards.index') }}>Carte</a>
-        </li>
-        <li>
-          <a class="menu-list active" href={{ route('titres.index') }} >Titre</a>
-        </li>
-        <li>
-          <a class="menu-list" href=""></a>
-        </li>
-        <li>
-          <a class="menu-list " href=""></a>
-        </li>
-        <li>
-          <a class="menu-list" href="">Services</a>
-        </li>
-        <li>
-          <a class="menu-list" href="">Contact</a>
-        </li>
-        <li>
-          <a class="menu-list" href="" >Testimonial</a>
-        </li>
-        <li> <a class="menu-list" href={{ route('home') }}>Get Started</a></li>
-        
-        
-       
-      </ul>
-    </nav>
-</header> --}}

@@ -39,6 +39,7 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            "img"=>"required",
             "p"=>"required",
             "pdp"=>"required",
             "name"=>"required",
@@ -48,6 +49,8 @@ class TestimonialController extends Controller
         $testimonial = new Testimonial();
 
         $testimonial->p = $request->p;
+        // $testimonial->img= $request->file('img')->hashName();
+        // $request->file('img')->storePublicly("img","public");
         $testimonial->pdp = $request->file("pdp")->hashName();
         $request->file("pdp")->storePublicly("img", "public");
         $testimonial->name = $request->name;
@@ -91,6 +94,7 @@ class TestimonialController extends Controller
     {
         $this->authorize("update",$testimonial);
         $request->validate([
+           
             "p"=>"required",
             "pdp"=>"required",
             "name"=>"required",
@@ -98,6 +102,8 @@ class TestimonialController extends Controller
         ]);
 
         $testimonial->p = $request->p;
+        // Storage::disk("public")->delete("img/" . $testimonial->img);
+        // $testimonial->img = $request->file("img","public");
         Storage::disk("public")->delete("img/" . $testimonial->pdp);
         $testimonial->pdp = $request->file("pdp")->hashName();
         $request->file("pdp")->storePublicly("img", "public");

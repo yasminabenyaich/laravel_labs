@@ -10,6 +10,7 @@
 								<input type="text" name="email" placeholder="Your email">
 							</div>
 							<div class="col-sm-12">
+								
 								<input type="text" name="subject" placeholder="Subject">
 								<textarea name="message" placeholder="Message"></textarea>
 								<button class="site-btn">send</button>

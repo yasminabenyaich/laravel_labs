@@ -13,26 +13,30 @@ class TestimonialSeeder extends Seeder
      * @return void
      */
     public function run()
+
     {
+        // DB::table('testimonials')->insert([
+        //     "img"=>"test-man.png",
+        // ]);
         DB::table('testimonials')->insert([
             [
                 "p"=>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus possimus odit distinctio cupiditate, perferendis repellat. Tenetur voluptates dolores ipsa. Expedita perferendis debitis
                 doloremque rem unde laboriosam distinctio ea repellendus vel quisquam!",
-                "pdp"=>'img/avatar/01.jpg',
-                "name"=>'>Michael Smith',
+                "pdp"=>'01.jpg',
+                "name"=>'Michael Smith',
                 "job"=>'CEO Company',
             ],
             [
                 "p"=>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus possimus odit distinctio cupiditate, perferendis repellat. Tenetur voluptates dolores ipsa. Expedita perferendis debitis
                  doloremque rem unde laboriosam distinctio ea repellendus vel quisquam!",
-                 "pdp"=>'img/avatar/02.jpg',
-                 "name"=>'>Michael Smith',
-                 "job"=>'CEO Company',
+                 "pdp"=>'02.jpg',
+                 "name"=>"John Larson",
+                 "job"=>"Freelance"
             ],
             [
                 "p"=>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus possimus odit distinctio cupiditate, perferendis repellat. Tenetur voluptates dolores ipsa. Expedita perferendis debitis
                  doloremque rem unde laboriosam distinctio ea repellendus vel quisquam!",
-                 "pdp"=>'img/avatar/01.jpg',
+                 "pdp"=>'01.jpg',
                  "name"=>'>Michael Smith',
                  "job"=>'CEO Company',
             ],

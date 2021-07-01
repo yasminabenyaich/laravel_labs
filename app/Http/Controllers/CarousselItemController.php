@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\CarousselItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +15,7 @@ class CarousselItemController extends Controller
      */
     public function index()
     {
-        $carrouselItems = CarousselItem::all();
+        $carousselItems = CarousselItem::all();
         return view('backoffice.carousselItem.all',compact('carousselItems'));
     }
 
@@ -27,7 +26,7 @@ class CarousselItemController extends Controller
      */
     public function create()
     {
-       //
+        //
     }
 
     /**
@@ -53,7 +52,7 @@ class CarousselItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Caroussel_item  $caroussel_item
+     * @param  \App\Models\CarousselItem  $carousselItem
      * @return \Illuminate\Http\Response
      */
     public function show(CarousselItem $carousselItem)
@@ -64,7 +63,7 @@ class CarousselItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Caroussel_item  $caroussel_item
+     * @param  \App\Models\CarousselItem  $carousselItem
      * @return \Illuminate\Http\Response
      */
     public function edit(CarousselItem $carousselItem)
@@ -76,7 +75,7 @@ class CarousselItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Caroussel_item  $caroussel_item
+     * @param  \App\Models\CarousselItem  $carousselItem
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, CarousselItem $carousselItem)
@@ -97,7 +96,7 @@ class CarousselItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Caroussel_item  $caroussel_item
+     * @param  \App\Models\CarousselItem  $carousselItem
      * @return \Illuminate\Http\Response
      */
     public function destroy(CarousselItem $carousselItem)

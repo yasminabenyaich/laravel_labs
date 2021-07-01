@@ -5,7 +5,7 @@
 
 @include('partials.blog.headerBlog')
 @include('partials.blog.postItemBlog')
-@include('partials.blog.paginationPost')
+
 @include('partials.blog.sidebar')
 @include('partials.newsLetter')
 

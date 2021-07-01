@@ -52,6 +52,7 @@ class ContactController extends Controller
         $contact->phone = $request->phone;
         $contact->mail = $request->mail;
         $contact->position = $request->position;
+        $contact->created_at= now();
        
         $contact-> save();
             return redirect(('contacts.index'));

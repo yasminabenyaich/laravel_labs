@@ -8,88 +8,23 @@
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     <!-- single testimonial -->
+                    @foreach ($testimonials as $testimonial)
                     <div class="testimonial">
                         <span>‘​‌‘​‌</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+                        <p>{{ $testimonial->p }}</p>
                         <div class="client-info">
                             <div class="avatar">
-                                <img src={{ asset('img/avatar/01.jpg') }}>
+                                <img src={{ asset('img/' . $testimonial->pdp) }}>
                             </div>
                             <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
+                                <h2>{{ $testimonial->name }}</h2>
+                                <p>{{ $testimonial->job }}</p>
                             </div>
                         </div>
                     </div>
-                    <!-- single testimonial -->
-                    <div class="testimonial">
-                        <span>‘​‌‘​‌</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                        <div class="client-info">
-                            <div class="avatar">
-                                <img src={{ asset('img/avatar/02.jpg') }}>
-                            </div>
-                            <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single testimonial -->
-                    <div class="testimonial">
-                        <span>‘​‌‘​‌</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                        <div class="client-info">
-                            <div class="avatar">
-                                <img src={{ asset('img/avatar/01.jpg') }}>
-                            </div>
-                            <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single testimonial -->
-                    <div class="testimonial">
-                        <span>‘​‌‘​‌</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                        <div class="client-info">
-                            <div class="avatar">
-                                <img src={{ asset('img/avatar/02.jpg') }}>
-                            </div>
-                            <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single testimonial -->
-                    <div class="testimonial">
-                        <span>‘​‌‘​‌</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                        <div class="client-info">
-                            <div class="avatar">
-                                <img src={{ asset('img/avatar/01.jpg') }}>
-                            </div>
-                            <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single testimonial -->
-                    <div class="testimonial">
-                        <span>‘​‌‘​‌</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                        <div class="client-info">
-                            <div class="avatar">
-                                <img src={{ asset('img/avatar/02.jpg') }}>
-                            </div>
-                            <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
-                            </div>
-                        </div>
+                            
+                    @endforeach
+    
                     </div>
                 </div>
             </div>

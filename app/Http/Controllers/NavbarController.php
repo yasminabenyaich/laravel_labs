@@ -14,8 +14,8 @@ class NavbarController extends Controller
      */
     public function index()
     {
-        $navbar= Navbar::all();
-        return view("backofffice.navbar.all",compact('navbars'));
+        $navbars= Navbar::all();
+        return view("backoffice.navbar.all",compact('navbars'));
     }
 
     /**
@@ -36,7 +36,19 @@ class NavbarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "link"=>"required",
+            "page"=>"required",
+        ]);
+
+        $navbar = new Navbar;
+        $navbar->link = $request->link;
+        $navbar->page = $request->page;
+        
+        $request->created_at = now();
+        $navbar->save();
+        return redirect()->route("navbar.index")->with("message","La navbar a bien été modifier");
+        
     }
 
     /**
@@ -58,7 +70,7 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
-        
+        return view("backoffice.navbar.edit",compact('navbar'));
     }
 
     /**
@@ -70,6 +82,16 @@ class NavbarController extends Controller
      */
     public function update(Request $request, Navbar $navbar)
     {
+        $request->validate([
+            "link"=>"required",
+            "page"=>"required",
+        ]);
+
+        $navbar->link = $request->link;
+        $navbar->page = $request->page;
+        $navbar->updated_at= now();
+        $navbar->save();
+        return redirect()->route("navbars.index")->with("message","La Navbar a bien été modifer");
         
     }
 
@@ -81,6 +103,7 @@ class NavbarController extends Controller
      */
     public function destroy(Navbar $navbar)
     {
-        //
+        $navbar->delete();
+        return redirect()->back();
     }
 }
