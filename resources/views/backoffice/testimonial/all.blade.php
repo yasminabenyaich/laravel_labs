@@ -3,12 +3,12 @@
 @section('content')
     <div class="d-flex align-items-center justify-content-center mb-5">
         <h1 class="my-0 mx-2">testimonials</h1>
-        @can('create', Testimonial::class)
+   
         <a href={{ route('testimonials.create') }} class="btn btn-success text-white"><i class="fas fa-plus"></i></a>
             
-        @endcan
+      
     </div>
-    <table class="table text-white">
+    <table class="table text-dark">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -44,7 +44,7 @@
                                    <i class="fas fa-trash-alt"></i></button>
                            </form>
                                
-                           @endcan
+                          
                            
                         </div>
                     </td>

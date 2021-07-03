@@ -8,6 +8,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\IconeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\NewsletterMailController;
@@ -72,7 +73,8 @@ Route::get('/titre',function(){
 Route::get('/blog',function(){
     $navbars = Navbar::all();
     $posts = Post::all();
-    return view('blog',compact('navbars','posts'));
+    $newsLetters = NewsLetter::all();
+    return view('blog',compact('navbars','posts','newsLetters'));
 })->name('blog');
 
 Route::get('/blogPost/{post_id}',function($post_id){
@@ -128,6 +130,8 @@ Route::resource('/titres',TitreController::class);
 Route::resource('/comments',CommentController::class);
 
 Route::resource('/posts',PostController::class);
+//MAIL
+Route::post("/send-mail",[MailController::class,"sendMail"]);
 
 
 

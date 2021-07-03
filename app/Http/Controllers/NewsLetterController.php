@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewsLetter;
+use App\Models\NewsletterMail;
 use Illuminate\Http\Request;
 
 class NewsLetterController extends Controller
@@ -14,8 +15,8 @@ class NewsLetterController extends Controller
      */
     public function index()
     {
-        $newsLetter = Newsletter::all();
-        return view('backoffice.newsletter.newsletter', compact('newsletter'));
+        $newsLetters = Newsletter::all();
+        return view('backoffice.newsletter.newsletter', compact('newsletters'));
     }
 
     /**

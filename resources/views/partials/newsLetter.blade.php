@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                {{-- <h2>{{ $newsLetters[0]->h2 }}</h2> --}}
+             <h2>{{ $newsLetters[0]->h2 }}</h2> 
             </div>
             <div class="col-md-9">
-                {{-- @if ($errors->any())
+               @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -18,13 +18,14 @@
                     <div class="alert alert-success">
                         {{ session()->get('message') }}
                     </div>
-                @endif --}}
+                @endif 
                 <!-- newsletter form -->
-                {{-- <form class="/newsletterMail" methode="POST" class="nl-form">
+               <form  method="POST" action="{{ route('newsletterMails.store')  }}" class="nl-form">
                     @csrf
+                    @method('POST')
                     <input type="text" name="email" placeholder="{{ $newsLetters[0]->input }}">
                     <button class="site-btn btn-2">{{ $newsLetters[0]->btn }}</button>
-                </form> --}}
+                </form>  
             </div>
         </div>
     </div>

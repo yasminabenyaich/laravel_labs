@@ -15,7 +15,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $service = Service::all();
+        $services = Service::all();
         $icones= Icone::all();
         return view('backoffice.service.all',compact('services','icones'));
     }

@@ -13,7 +13,7 @@ class CreateNewsLettersTable extends Migration
      */
     public function up()
     {
-        Schema::create('news_letters', function (Blueprint $table) {
+        Schema::create('newsLetters', function (Blueprint $table) {
             $table->id();
             $table->string('h2');
             $table->text('input');
@@ -29,6 +29,6 @@ class CreateNewsLettersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_letters');
+        Schema::dropIfExists('newsLetters');
     }
 }

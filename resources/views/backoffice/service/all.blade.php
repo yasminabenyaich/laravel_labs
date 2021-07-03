@@ -1,19 +1,19 @@
-{{-- @extends('layouts.appBack')
+ @extends('layouts.appBack')
 
 @section('content')
 <div class="container">
     <div class="row">
-        <h1> Cartes home</h1>
+        <h1> Service Features</h1>
         <!-- single card -->
-        @foreach ($cards as $card)
-        <div class="col-md-4 col-sm-6">
-            <div class="lab-card">
+        @foreach ($services as $service)
+        <div class="col-md-4 col-sm-4 features">
+            <div class="service-text"">
                 <div class="icone">
-                    <i class="{{ $card->icone->icone }}"></i>
+                    <i class="{{ $service->icone->icone }}"></i>
                 </div>
-                <h2>{{ $card->h2 }}</h2>
-                <p>{{ $card->p }}</p>
-                <a href={{ route('cards.edit',$card) }} class="site-btn btn-2">Edit</a>
+                <h2>{{ $service->h3 }}</h2>
+                <p>{{ $service->p }}</p>
+                <a href={{ route('services.edit',$service) }} class="site-btn btn-2">Edit</a>
             
             </div>
         </div>
@@ -21,4 +21,4 @@
         @endforeach
      
 
-@endsection --}}
+@endsection  

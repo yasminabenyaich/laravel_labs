@@ -1,7 +1,11 @@
 
 				<!-- contact form -->
 				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form">
+					@if (session("message_mail"))
+					<div>{{ session("message_mail") }}</div>
+				  @endif
+					<form class="form-class" action="/send-mail" method="post" id="con_form">
+						@csrf
 						<div class="row">
 							<div class="col-sm-6">
 								<input type="text" name="name" placeholder="Your name">

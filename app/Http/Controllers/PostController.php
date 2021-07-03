@@ -38,7 +38,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->vakidate([
+        $request->validate([
             "title"=> "required",
             "content"=>"required",
             "user_id"=>"required",
@@ -63,6 +63,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        
         return view("backoffice.post.show",compact('post'));
     }
 

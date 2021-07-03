@@ -24,7 +24,8 @@ class NewsletterMailController extends Controller
      */
     public function create()
     {
-        //
+        $newsletterMails = NewsletterMail::all();
+        return view("backoffice.newsletterMail.create",compact('newslettersMail'));
     }
 
     /**
@@ -35,7 +36,15 @@ class NewsletterMailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+  
+        $request->validate([
+            "mail"=>"required",
+           
+        ]);
+        $newsletterMail = new NewsletterMail();
+        $newsletterMail->mail= $request->mail;
+        $newsletterMail->save();
+        return redirect(('newsletterMail.index'));
     }
 
     /**
