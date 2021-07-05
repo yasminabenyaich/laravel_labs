@@ -7,8 +7,10 @@
 <div class="container-fluid overlay ">
     <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
         <h1 class="">Titres </h1>
+      
         {{-- <a href={{ route('titres.create') }} class="btn btn-success text-white"><i class="fas fa-plus"></i></a> --}}
     </div>
+
     <table class="table text-dark">
         <thead>
             <tr>
@@ -30,9 +32,9 @@
                             <a  href="/titres/{{ $titre->id }}/edit"class="site-btn ">edit</a>
                                 <form action={{ route('titres.destroy', $titre->id) }} method="post">
                                     @csrf
-                                    @method("delete")
-                                    <button class="btn btn-danger text-dark mx-2" type="submit">
-                                        <i class="fas fa-trash-alt"></i></button>
+                               
+                              
+                               
                                 </form>
                         </div>
                     </td>

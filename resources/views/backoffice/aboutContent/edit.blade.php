@@ -2,7 +2,7 @@
 @section('content')
 <section class="container-fluid overlay">
   <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
-    <h2>Edit About</h2>
+    <h1 class="my-0 mx-2">Edit About</h1>
   </div>
     <ul>
       @foreach ($errors->all() as $message) 

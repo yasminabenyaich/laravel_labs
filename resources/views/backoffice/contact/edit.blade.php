@@ -1,7 +1,10 @@
 @extends('layouts.appBack')
 @section('content')
-<section class="container">
-    <h2 class="text-center my-4 bg-danger">Edit contact</h2>
+<section class="w-100 overlay">
+  <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
+    <h1 class="my-0 mx-2">Edit Contact</h1>
+   
+</div>
     <ul>
       @foreach ($errors->all() as $message) 
           <li>{{ $message }}</li>
