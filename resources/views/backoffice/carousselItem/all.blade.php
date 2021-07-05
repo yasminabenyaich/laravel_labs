@@ -2,13 +2,18 @@
  @extends('layouts.appBack')
 
   @section('content')
+  
     <div class="row">
+        <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
+            <h1 class="mb-5">Caroussel</h1>
+          
+        </div>
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Caroussel</h1>
+                    
 
-                    <a href="/carousselItems/create" class="btn mb-3" >Ajouter une image</a>
+                    <a href={{ route("carousselItems.create") }} class="btn site-btn mb-3" >Ajouter une image</a>
 
                     <table class="table">
                         <thead>
@@ -24,13 +29,13 @@
                                 <tr>
                                     <th scope="row">{{$carousselItem->id}}</th>
                                     <td>
-                                        <img src="{{asset($carousselItem->img)}}" height="100px" alt="">
+                                        <img src="{{asset("img/" . $carousselItem->img)}}" height="100px" alt="">
                                     </td>
                                     <td>
                                         <form action="/carousselItems/{{$carousselItem->id}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn">DELETE</button>
+                                            <button type="submit" class="btn btn-danger">DELETE</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -42,38 +47,3 @@
         </div>
     </div>
 @endsection
-{{-- 
-@section('content')
-<div class="card bg-dark text-white">
-   <h5 class="card-title">Card title</h5>
-   @foreach ($carousselItems as $carousselItems)
-   <img class="card-img" src={{ asset($carousselItems[0]->img) }} alt="Card image">
-   <div class="card-img-overlay">
-
-       @endforeach
-
-   </div>
-   <a href="/carouselItems/{{$carouselItem->id}}/edit" class="btn" >EDIT</a>
- </div> --}}
- {{-- <div class="hero-section">
-    <div class="hero-content">
-        
-    </div>
-
-    <div id="hero-slider" class="owl-carousel">
-        @foreach ($carousselItems as $carousselItem)
-        
-        <div class="item  hero-item" data-bg={{ asset($carousselItem->img) }}>
-        </div>
-        @endforeach
-
-    </div>
-    <a href="/carouselItems/{{$carouselItem->id}}/edit" class="btn" >EDIT</a>
-    {{-- <form action="/carouselItems/{{$carousel->id}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn">DELETE</button>
-    </form>/</div> --}}
-
-
- 

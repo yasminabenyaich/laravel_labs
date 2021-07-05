@@ -15,4 +15,12 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+    public function tags()
+    {
+        return  $this->belongsToMany(Tag::class, 'post_tag');
+    }
+    public function categories(){
+        return $this->belongsToMany(Categorie::class , 'pivot_table_post_categorie');
+    }
+
 }

@@ -1,13 +1,16 @@
 <div class="hero-section">
     <div class="hero-content">
         <div class="hero-center">
-            <img src={{ asset('img/big-logo.png') }} alt="">
-            <p>Get your freebie template now!</p>
+            <img src={{ asset('img/' . $heroes[0]->logo) }} alt="">
+            <p>{{ $heroes[0]->h3 }}</p>
         </div>
     </div>
-    <!-- slider -->
+   <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
-        <div class="item  hero-item" data-bg={{ asset('img/01.jpg') }}></div>
-        <div class="item  hero-item" data-bg={{ asset('img/02.jpg') }}></div>
-    </div>
+        @foreach ($carousselItems as $carousselItem)
+        <div class="item  hero-item" data-bg={{ asset('img/' . $carousselItem->img) }}></div>
+            
+        @endforeach
+   
+    </div> 
 </div>

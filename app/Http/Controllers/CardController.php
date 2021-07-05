@@ -50,7 +50,7 @@ class CardController extends Controller
         $card->h2 = $request->h2;
         $card->p = $request->p;
         $card->save();
-        return redirect(('cards.index'));
+        return redirect()->route('cards.index');
 
     }
 

@@ -2,28 +2,17 @@
 @section('content')
 @include('partials.navBack')
  
-<section>
- 
-  {{-- <div class="overlay">
-    <div class="row justify-content-center">
-        <h1 class="text-center">welcome to dashboard</h1>
+<section class="w-100">
+
+<div class="w-100" data-aos="fade-up">
+<div class="w-100" id="backgroundImage"> 
+    <div class="justify-content-center text-white">
+    <h1 class="dash text-center">Welcome To Dashboard</h1>
+
     </div>
-  </div> --}}
-    {{-- <div id="chart" style="height: 300px;"></div>
-    <!-- Charting library -->
-    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
-    <!-- Chartisan -->
-    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
-    <!-- Your application script -->
-    <script>
-      const chart = new Chartisan({
-        el: '#chart',
-        url: "@chart('sample_chart')",
-      });
-    </script>
-    --}}
-   
- </section>
+</div>
+</div>
  
  
+</section>
 @endsection

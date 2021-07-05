@@ -16,10 +16,10 @@ class CarousselItemSeeder extends Seeder
     
     {
         DB::table('carousselItems')->insert([
-            "img"=> "img/01.jpg",
+            "img"=> "01.jpg",
         ]);
         DB::table('carousselItems')->insert([
-            "img"=> "img/02.jpg",
+            "img"=> "02.jpg",
            
         ]);
     }

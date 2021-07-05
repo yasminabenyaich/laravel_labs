@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categorie;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +31,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CardImgSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(NewsLetterSeeder::class);
+        $this->call(TagSeeder::class);
+        $this->call(CategorieSeeder::class);
+        $this->call(PostTagSeeder::class);
+        $this->call(PostCategorieSeeder::class);
 
 
     }

@@ -19,13 +19,18 @@ use App\Http\Controllers\TitreController;
 use App\Http\Controllers\VideoController;
 use App\Models\AboutContent;
 use App\Models\Card;
+use App\Models\CarousselItem;
+use App\Models\Categorie;
 use App\Models\Contact;
+use App\Models\Hero;
 use App\Models\Navbar;
 use App\Models\NewsLetter;
 use App\Models\Post;
 use App\Models\Service;
+use App\Models\Tag;
 use App\Models\Testimonial;
 use App\Models\Titre;
+use App\Models\User;
 use App\Models\Video;
 use Illuminate\Support\Facades\Route;
 
@@ -45,10 +50,13 @@ Route::get('/', function () {
     $navbars = Navbar::all();
     $aboutContent = AboutContent::first();
     $titres = Titre::all();
-    $video= Video::first();
+    $videos= Video::all();
     $contact = Contact::first();
     $testimonials = Testimonial::all();
-  return view('home',compact('cards','navbars','aboutContent','titres','video','testimonials','contact'));
+    $heroes = Hero::all();
+    $carousselItems = CarousselItem::all();
+    $users = User::all();
+  return view('home',compact('cards','navbars','aboutContent','titres','videos','testimonials','contact','heroes','users','carousselItems'));
 
 })->name('home');
 
@@ -73,8 +81,10 @@ Route::get('/titre',function(){
 Route::get('/blog',function(){
     $navbars = Navbar::all();
     $posts = Post::all();
+    $categories= Categorie::all();
+    $tags = Tag::all();
     $newsLetters = NewsLetter::all();
-    return view('blog',compact('navbars','posts','newsLetters'));
+    return view('blog',compact('navbars','posts','newsLetters','categories','tags'));
 })->name('blog');
 
 Route::get('/blogPost/{post_id}',function($post_id){
@@ -88,48 +98,73 @@ Route::get('/contact',function(){
     $navbars = Navbar::all();
     return view('contact',compact('contact','navbars'));
 })->name('contact');
+Route::get('/tags/{id}', function ($id) {
+    $tag = Tag::find($id);
+    $navbars = Navbar::first();
+    $posts = $tag->posts()->paginate(3);
+ 
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('partials.blog.all', compact('navbars', 'posts','tags', 'categories', 'tag'));
+})->name('tag');
+
+Route::get('/categories/{id}', function ($id) {
+    $categorie = Categorie::find($id);
+    $navbars = Navbar::first();
+    $posts = $categorie->posts()->paginate(3);
+    // $footers = Footer::first();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('partials.blog.all', compact('navbars', 'posts','tags', 'categories', 'categorie'));
+})->name('categorie');
 
 Route::get('/element',function(){
     return view('element');
 })->name('element');
 
-Route::resource('/navbars',NavbarController::class);
+Route::resource('/navbars',NavbarController::class)->middleware(['auth','isAdminWebmaster']);
 
 // Route::resource('/headers',HeaderController::class);
 
-Route::resource('/heroes',HeroController::class);
+Route::resource('/heroes',HeroController::class)->middleware(['auth','isAdminWebmaster']);
 
-Route::resource('/aboutContents',AboutContentController::class);
+Route::resource('/aboutContents',AboutContentController::class)->middleware(['auth','isAdminWebmaster']);
 
 
 
-Route::resource('/carousselItems',CarousselItemController::class);
+Route::resource('/carousselItems',CarousselItemController::class)->middleware(['auth','isAdminWebmaster']);
 
-Route::resource('/testimonials',TestimonialController::class);
+Route::resource('/testimonials',TestimonialController::class)->middleware(['auth','isAdminWebmaster']);
 Route::post("/testimonials/{id}/download",[TestimonialController::class],"download");
 
-Route::resource('/cardImgs',CardImgController::class);
+Route::resource('/cardImgs',CardImgController::class)->middleware(['auth','isAdminWebmaster']);
 Route::post("cardImgs/{id}/download",[CardImgController::class],"download");
 
 Route::resource('/newsletters', NewsLetterController::class);
 Route::resource('/newsletterMails', NewsletterMailController::class);
 
-Route::resource('/contacts',ContactController::class);
+Route::resource('/contacts',ContactController::class)->middleware(['auth','isAdminWebmaster']);
 
-Route::resource('/services', ServiceController::class);
+Route::resource('/services', ServiceController::class)->middleware(['auth','isAdminWebmaster']);
 
 
-Route::resource('/videos',VideoController::class);
+Route::resource('/videos',VideoController::class)->middleware(['auth','isAdminWebmaster']);
 
-Route::resource('icones',IconeController::class);
+Route::resource('icones',IconeController::class)->middleware(['auth','isAdminWebmaster']);
 
-Route::resource('/cards',CardController::class);
+Route::resource('/cards',CardController::class)->middleware(['auth','isAdminWebmaster']);
 
-Route::resource('/titres',TitreController::class);
+Route::resource('/titres',TitreController::class)->middleware(['auth','isAdminWebmaster']);
 
 Route::resource('/comments',CommentController::class);
 
 Route::resource('/posts',PostController::class);
+
+Route::resource('/categories',Categorie::class);
+
+Route::resource('/tags',Tag::class);
+
+
 //MAIL
 Route::post("/send-mail",[MailController::class,"sendMail"]);
 

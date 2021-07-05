@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('h3');
             $table->text('p');
             $table->string('btn')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

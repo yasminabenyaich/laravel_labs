@@ -26,7 +26,7 @@ class CarousselItemController extends Controller
      */
     public function create()
     {
-        //
+        return view("backoffice.carousselItem.create");
     }
 
     /**
@@ -47,6 +47,7 @@ class CarousselItemController extends Controller
 
         $carousselItem->created_at = now();
         $carousselItem->save();
+        return redirect()->route('carousselItems.index');
     }
 
     /**

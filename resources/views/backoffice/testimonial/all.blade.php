@@ -1,12 +1,10 @@
 @extends('layouts.appBack')
 
 @section('content')
-    <div class="d-flex align-items-center justify-content-center mb-5">
-        <h1 class="my-0 mx-2">testimonials</h1>
-   
-        <a href={{ route('testimonials.create') }} class="btn btn-success text-white"><i class="fas fa-plus"></i></a>
-            
-      
+<div class="container-fluid overlay">
+ 
+        <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
+        <h1 class="my-0 mx-2">Testimonials</h1> 
     </div>
     <table class="table text-dark">
         <thead>
@@ -32,16 +30,15 @@
                         <div class="d-flex">
                            
                            
-                            <a class="btn btn-success text-white mx-2" href="/testimonials/{{ $testimonial->id }}/edit"><i class="fas fa-edit"></i></a>
+                            <a href="/testimonials/{{ $testimonial->id }}/edit" class="site-btn">Edit</a>
                                 
-                           
-                            <a class="btn btn-warning text-white mx-2" href="/testimonials/{{ $testimonial->id }}"><i class="fas fa-eye"></i></a>
+{{--                            
+                            <a class="btn btn-warning text-white mx-2" href="/testimonials/{{ $testimonial->id }}"><i class="fas fa-eye"></i></a> --}}
                         
                            <form action={{ route('testimonials.destroy', $testimonial->id) }} method="post">
                                @csrf
                                @method("delete")
-                               <button class="btn btn-danger text-white mx-2" type="submit">
-                                   <i class="fas fa-trash-alt"></i></button>
+                               <button class="btn btn-danger text-dark mx-2" type="submit">Delete</button>
                            </form>
                                
                           
@@ -52,7 +49,7 @@
             @endforeach
         </tbody>
     </table>
-
+    <a href={{ route('testimonials.create') }} class="site-btn ml-3">Create</a>
 
     <div>
         {{ $testimonials->links() }}

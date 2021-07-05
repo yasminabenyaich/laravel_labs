@@ -1,9 +1,10 @@
 @extends('layouts.appBack')
 
 @section('content')
-<div class="about-contant">
+<div class="about-contant overlay">
     <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
         <h1 class="my-0 mx-2">Abouts</h1>
+       
     </div>
     <table class="table text-dark">
         <thead>
@@ -11,8 +12,8 @@
                 <th scope="col-3">#</th>
 
               
-                <th scope="col-3">paragraphe1</th> 
-                <th scope="col-3">paragraphe2</th> 
+                <th scope="col-3">Paragraphe 1</th> 
+                <th scope="col-3">Paragraphe 2</th> 
                 <th scope="col-3">Btn texte</th>
 
         
@@ -30,8 +31,8 @@
                     
                     <td>
                         <div class="d-flex">
-                            <a class="btn btn-warning text-white mx-2" href="/aboutContents/{{ $aboutContent->id }}"><i class="fas fa-eye"></i></a>
-                            <a class="btn btn-success text-white mx-2" href="/aboutContents/{{ $aboutContent->id }}/edit"><i class="fas fa-edit"></i></a> 
+        
+                            <a href="/aboutContents/{{ $aboutContent->id }}/edit" class="site-btn ml-3">edit</a>
                             {{-- @can('update', $aboutContent)
                             <a class="btn btn-success text-white mx-2" href="/abouts/{{ $aboutContent->id }}/edit"><i class="fas fa-edit"></i></a> 
                             @endcan --}}

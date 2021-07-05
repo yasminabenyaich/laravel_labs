@@ -1,8 +1,9 @@
 @extends('layouts.appBack')
 
 @section('content')
-    <div class="d-flex align-items-center justify-content-center mb-5">
-        <h1 class="my-0 mx-2">contacts</h1>
+<div class="overlay">
+    <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
+        <h1 class="my-0 mx-2">Contacts</h1>
       
     </div>
     <table class="table text-dark">
@@ -30,8 +31,8 @@
                  
                     <td>
                         <div class="d-flex">
-                            <a class="btn btn-warning text-white mx-2" href="/contacts/{{ $contact->id }}"><i class="fas fa-address-card"></i></a>
-                            <a class="btn btn-success text-white mx-2" href="/contacts/{{ $contact->id }}/edit"><i class="fas fa-edit"></i></a>
+                            
+                            <a href="/contacts/{{ $contact->id }}/edit"class="site-btn ml-3">edit</a>
                                 
                         </div>
                     </td>
@@ -39,6 +40,7 @@
            
         </tbody>
     </table>
+</div>
     {{-- <div>
         {{ $contacts->links() }}
     </div> --}}

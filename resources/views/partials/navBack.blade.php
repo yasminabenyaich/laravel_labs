@@ -1,5 +1,5 @@
-<div>
-  <div class="logo">
+<div class="sidebar1 fixed-top">
+  <div class="logo mt-5">
     <a  href={{ route('home') }}><img src={{ asset('img/logo.png') }} alt=""></a>
   </div>
     <ul>
@@ -31,6 +31,9 @@
       <li>
         <a  href={{ route('contacts.index') }}><i class="fas fa-phone-square"></i>Contact</a>
       </li>
+      <li>
+        <a href={{ route('posts.index') }} ><i class="fab fa-accusoft"></i>Post</a>
+      </li>  
       <li>
         <a href={{ route('testimonials.index') }} ><i class="fab fa-accusoft"></i>Testimonial</a>
       </li>  

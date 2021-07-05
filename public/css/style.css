@@ -1737,3 +1737,115 @@ ul {
 		margin-bottom: 20px;
 	}
 }
+body {
+    font-family: 'Robot',sans-serif;
+ }
+ *{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+ }
+
+.sidebar1{
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background:#042331 ;
+}
+.sidebar1 header{
+    font: size 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar1 ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1p solid black;
+}
+.sidebar1 ul li:hover a{
+    padding-left:50px ;
+}
+
+.sidebar1 ul a i{
+    margin-right:16px;
+
+}
+#backgroundImage{
+    background: url('../img/dashboard.jpg') no-repeat center center fixed;
+	background-size:cover;
+    width: 100vh;
+    height: 100vh;
+}
+.dash {
+	position: absolute;
+	left: 50%;
+	top: 15%;
+	transform: translate(-50%, -50%);
+	display: block;
+	color: #45157c;
+	font-size: 124px;
+	letter-spacing: 8px;
+	cursor: pointer;
+  }
+  
+  
+  .dash::before {
+	content: "Welcome To Dashboard";
+	position: absolute;
+	color: transparent;
+	background-image: repeating-linear-gradient(
+	  45deg,
+	  transparent 0,
+	  transparent 2px,
+	  rgba(209, 162, 221, 0.952) 2px,
+	  rgb(107, 97, 153) 4px
+	);
+	-webkit-background-clip: text;
+	top: 0px;
+	left: 0;
+	z-index: -1;
+	transition: 1s;
+  }
+  
+  .dash::after {
+	content: "Welcome To Dashboard";
+	position: absolute;
+	color: transparent;
+	background-image: repeating-linear-gradient(
+	  135deg,
+	  transparent 0,
+	  transparent 2px,
+	  white 2px,
+	  white 4px
+	);
+	-webkit-background-clip: text;
+	top: 0px;
+	left: 0px;
+	transition: 1s;
+  }
+  
+  .dash:hover:before {
+	top: 10px;
+	left: 10px;
+  }
+  
+  .dash:hover:after {
+	top: -10px;
+	left: -10px;
+  } 
+  
+  
+

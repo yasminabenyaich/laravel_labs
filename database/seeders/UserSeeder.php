@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             "pdp"=>"1.jpg",
             "name"=>"Williams",
             "firstname"=>"Christinne",
-            "description"=>"PROJECT MANAGER",
+            "description"=>"Admin",
             "email"=>"christinne.w@outlook.be",
             "password"=>Hash::make("testtest")
         ]);
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             "pdp"=>"1.jpg",
             "name"=>"Benyaich",
             "firstname"=>"Yasmina",
-            "description"=>"DEV JUNIOR",
+            "description"=>"WebMaster",
             "email"=>"yasmina.b@outlook.be",
             "password"=>Hash::make("testtest")
         ]);
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             "pdp"=>"2.jpg",
             "name"=>"Williams",
             "firstname"=>"Axel",
-            "description"=>"Digital Designer",
+            "description"=>"Rédacteur",
             "email"=>"axelwilliams@outlook.be",
             "password"=>Hash::make("testtest")
         ]);

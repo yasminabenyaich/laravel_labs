@@ -16,7 +16,7 @@
                     </div>
                 @endif
 
-                <form action="/homeAboutVideo/{{$edit->id}}" method="POST" enctype="multipart/form-data" class="m-3">
+                <form action="/video/{{$edit->id}}" method="POST" enctype="multipart/form-data" class="m-3">
                     @csrf
                     @method('PATCH')
                     
@@ -26,11 +26,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="youtubeLink">Insérer l'url Youtube : </label>
-                        <input type="text" name="youtubeLink" class="form-control" value="{{old('youtubeLink') ? old('youtubeLink') : $edit->youtubeLink}}">
+                        <label for="link">Insérer lien Youtube : </label>
+                        <input type="text" name="link" class="form-control" value="{{old('link') ? old('link') : $video->link}}">
                     </div>
 
-                    <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>
+                    <button type="submit" class="btn mt-4">enregistrer</button>
                 </form>
             </div>
         </div>

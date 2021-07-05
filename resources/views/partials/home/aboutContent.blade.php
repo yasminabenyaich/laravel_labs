@@ -18,8 +18,8 @@
         <div class="intro-video">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <img src={{ asset('img/' . $video->url) }} alt="">
-                    <a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+                    <img src="{{ asset('img/' . $videos[0]->url) }} "alt="">
+                    <a href="{{ $videos[0]->link }}" class="video-popup">
                         <i class="fa fa-play"></i>
                     </a>
                 </div>

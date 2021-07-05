@@ -1,3 +1,4 @@
+
 @extends('layouts.appBack')
 @section('content')
     
@@ -7,23 +8,21 @@
     <div>
 
       <div class="mb-3 ">
-        <label class="form-label ">Icone</label>
-        <br>
-        @foreach ($icones as $icone)
-      <input type="radio" class="btn-check" name="icone_id" value={{ $icone->id }} id="option1" autocomplete="off" checked>
-      <label class="btn btn-secondary" for="option1"><i class={{ $icone->icone }}></i></label>
-    </div>
-    
-      @endforeach
-    
+          <label class="form-label ">Icone</label>
+          <br>
+          @foreach ($icones as $icone)
+        <input type="radio" class="btn-check" name="icone_id" value={{ $icone->id }}>
+        <label class="btn btn-secondary" for="option1"><i class={{ $icone->icone }}></i></label>
+        @endforeach
+      </div>
     <div class="mb-3">
         <label class="form-label">Titre</label>
-        <input value="{{ $card->h2 }}" type="text" class="form-control"  name="h2">
+        <input type="text" class="form-control" name="h2">
       </div>
       
       <div class="mb-3">
         <label class="form-label">Description</label>
-        <input value="{{ $card->p }}" type="text" class="form-control"  name="p">
+        <input type="text" class="form-control" name="p">
       </div>
      
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,13 +1,22 @@
 @extends('layouts.appBack')
 
 @section('content')
-<div class="container">
+<div class="w-100 overlay">
+    
+
     <div class="row">
-        <h1> Cartes home</h1>
+    <div class="d-flex align-items-center justify-content-center mb-5 jumbotron">
+        <h1> Cartes Home Service</h1>
+       
+    </div>
+    
+ {{-- <div class="w-100  mb-5">
+        <a href={{ route('cards.createCards') }} class="btn site-btn">Create</a>
+    </div>  --}}
         <!-- single card -->
         @foreach ($cards as $card)
         <div class="col-md-4 col-sm-6">
-            <div class="lab-card">
+            <div class="lab-card mt-5">
                 <div class="icone">
                     <i class="{{ $card->icone->icone }}"></i>
                 </div>

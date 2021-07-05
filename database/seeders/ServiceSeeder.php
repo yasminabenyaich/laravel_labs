@@ -56,6 +56,7 @@ class ServiceSeeder extends Seeder
                 "p"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum
                  id, suscipit id nulla..",
                 "btn"=>'browse',
+                "link"=>''
             ], 
         ]);
     }
